@@ -1,16 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import Task from './components/Task.js';
 import './index.css';
-
-function Task(props) {
-  return (
-    <li className="task">
-      {`${props.task} `}
-      <button className="task__btn--remove" onClick={() => props.onClick(props.index)}>usuń</button>
-    </li>
-  );
-}
 
 class Todo extends React.Component {
   constructor(props) {
@@ -18,9 +9,6 @@ class Todo extends React.Component {
     this.state = {
       tasksList: [],
     };
-
-    this.addTask = this.addTask.bind(this); 
-    this.removeItem = this.removeItem.bind(this);
   }
 
   addTask = event => {
@@ -69,9 +57,3 @@ ReactDOM.render(
   <Todo />,
   document.getElementById('root')
 );
-
-Task.propTypes = {
-  index: PropTypes.number,
-  task: PropTypes.string,
-  onClick: PropTypes.func,
-};
